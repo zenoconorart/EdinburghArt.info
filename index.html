@@ -5,174 +5,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <title>Edinburgh Art Exhibitions, Galleries & Free Events | Edinburgh Arts Info</title>
-    <meta name="description" content="Find current Edinburgh art exhibitions, free gallery events, opening nights, art walks and seasonal highlights. An independent guide to what is showing in Edinburgh now." />
+    <title>Edinburgh Art Calendar | Exhibitions, Galleries & Free Events</title>
+    <meta name="description" content="A simple searchable calendar of current Edinburgh art exhibitions, galleries, free events and opening nights. Find what is showing in Edinburgh now." />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href="https://zenoconorart.github.io/EdinburghArt.info/" />
-    <meta name="theme-color" content="#171411" />
-    <meta property="og:title" content="Edinburgh Art Exhibitions, Galleries & Free Events" />
-    <meta property="og:description" content="A simple independent guide to current Edinburgh art exhibitions, galleries, free events, opening nights, art walks and seasonal highlights." />
+    <meta name="theme-color" content="#faf7f1" />
+    <meta property="og:title" content="Edinburgh Art Calendar" />
+    <meta property="og:description" content="A simple searchable calendar of current Edinburgh art exhibitions, galleries, free events and opening nights." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://zenoconorart.github.io/EdinburghArt.info/" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Edinburgh Art Exhibitions, Galleries & Free Events" />
-    <meta name="twitter:description" content="Find what art is showing in Edinburgh now, including free exhibitions, galleries, opening nights and art walks." />
-    <link rel="stylesheet" href="./styles.css?v=20260424-6" />
+    <meta name="twitter:title" content="Edinburgh Art Calendar" />
+    <meta name="twitter:description" content="Find what art is showing in Edinburgh now." />
+    <link rel="stylesheet" href="./styles.css?v=20260424-7" />
   </head>
   <body>
-    <div class="grain" aria-hidden="true"></div>
-
-    <header class="site-header">
+    <header class="app-header">
       <a class="brand" href="#top" aria-label="Edinburgh Arts Info home">
         <span class="brand-mark">🎨</span>
-        <span><strong>Edinburgh Arts Info</strong><small>Current exhibitions, galleries and art walks</small></span>
+        <span>
+          <strong>Edinburgh Arts Info</strong>
+          <small>Art calendar</small>
+        </span>
       </a>
-      <nav class="topic-nav" aria-label="Browse Edinburgh art listings">
-        <a class="topic-link" href="#listings" data-jump-view="exhibitions"><span>🖼️</span>Current exhibitions</a>
-        <a class="topic-link" href="#listings" data-jump-view="galleries"><span>🏛️</span>Galleries</a>
-        <a class="topic-link" href="#listings" data-jump-price="free"><span>💸</span>Free art events</a>
-        <a class="topic-link" href="#listings" data-jump-view="opening"><span>🥂</span>Opening nights</a>
-        <a class="topic-link" href="#routes"><span>🗺️</span>Art walks</a>
-        <a class="topic-link" href="#highlights"><span>✨</span>Seasonal highlights</a>
-      </nav>
+      <p class="header-count"><span id="todayCount">0</span> happening now</p>
     </header>
 
-    <main id="top" class="page-shell">
-      <section class="hero" aria-labelledby="heroTitle">
-        <p class="section-kicker">Independent Edinburgh art guide</p>
-        <div class="hero-heading">
-          <span class="hero-emoji" aria-hidden="true">🎨</span>
-          <h1 id="heroTitle">Edinburgh art exhibitions, galleries and free events.</h1>
-        </div>
-        <p class="hero-copy">
-          Find what art is showing in Edinburgh now: current exhibitions, free gallery shows, opening nights, art walks and seasonal highlights.
-        </p>
-        <div class="hero-stats" aria-label="Guide summary">
-          <p><strong id="todayCount">0</strong><span> happening now</span></p>
-          <p><strong id="venueCountHero">0</strong><span> venues</span></p>
-          <p><strong>6</strong><span> ways to browse</span></p>
-        </div>
-      </section>
+    <main id="top" class="app-shell">
+      <section class="search-panel" aria-labelledby="pageTitle">
+        <p class="eyebrow">Independent Edinburgh art listings</p>
+        <h1 id="pageTitle">Find art in Edinburgh.</h1>
+        <label class="search-field" for="searchFilter">
+          <span>Search</span>
+          <input id="searchFilter" type="search" placeholder="Search venue, artist, area, free, photography..." autocomplete="off" />
+        </label>
 
-      <section class="seo-intro" aria-label="About this Edinburgh art guide">
-        <h2>What’s on in Edinburgh art now</h2>
-        <p>
-          Edinburgh Arts Info is an independent listings guide for people looking for current art exhibitions in Edinburgh, free gallery events, contemporary art spaces, opening nights, seasonal highlights and walkable art routes. Listings link back to official venue sources wherever possible.
-        </p>
-      </section>
-
-      <section id="listings" class="section-block" aria-labelledby="listingsTitle">
-        <div class="section-heading compact">
-          <div>
-            <p class="section-kicker">Current page</p>
-            <h2 id="listingsTitle">Happening now</h2>
-          </div>
-          <p>Current exhibitions are shown by default. Tap a listing for a quick preview, then use the official source for booking or final details.</p>
+        <div class="filter-row" aria-label="Filter listings">
+          <label>View<select id="viewFilter"><option value="exhibitions" selected>Exhibitions</option><option value="all">All</option><option value="galleries">Galleries</option><option value="opening">Openings</option></select></label>
+          <label>When<select id="timeFilter"><option value="now" selected>Now</option><option value="upcoming">Upcoming</option><option value="all-current">All current</option></select></label>
+          <label>Price<select id="priceFilter"><option value="all">Any price</option><option value="free">Free</option><option value="paid">Paid</option><option value="under10">Under £10</option><option value="varies">Varies</option></select></label>
+          <label>Area<select id="areaFilter"><option value="all">All areas</option></select></label>
         </div>
 
-        <div class="toolbar" aria-label="Filter listings">
-          <label class="field">View<select id="viewFilter"><option value="exhibitions" selected>Exhibitions</option><option value="all">Everything</option><option value="galleries">Galleries</option><option value="opening">Openings and events</option></select></label>
-          <label class="field">When<select id="timeFilter"><option value="now" selected>Happening now</option><option value="upcoming">Upcoming</option><option value="all-current">Now and upcoming</option></select></label>
-          <label class="field">Price<select id="priceFilter"><option value="all">All prices</option><option value="free">Free</option><option value="paid">Paid</option><option value="under10">Under £10</option><option value="varies">Varies / see source</option></select></label>
-          <label class="field">Area<select id="areaFilter"><option value="all">All areas</option></select></label>
-          <label class="field field-search">Search<input id="searchFilter" type="search" placeholder="venue, artist, free, £, photography..." /></label>
-        </div>
-
-        <div class="quick-filters" aria-label="Quick filters">
+        <div class="quick-row" aria-label="Quick filters">
           <button class="chip is-active" data-chip="all" type="button">All</button>
           <button class="chip" data-chip="free" type="button">Free</button>
           <button class="chip" data-chip="quiet" type="button">Quiet</button>
           <button class="chip" data-chip="family" type="button">Family</button>
           <button class="chip" data-chip="evening" type="button">Evening</button>
         </div>
-
-        <section class="statline" aria-label="Listing summary">
-          <p><span id="listingCount">0</span> listings</p>
-          <p><span id="venueCount">0</span> venues</p>
-          <p><span id="areaCount">0</span> areas</p>
-        </section>
-
-        <section id="listingsGrid" class="card-grid" aria-live="polite"></section>
       </section>
 
-      <section class="crawlable-listings" aria-label="Crawlable current Edinburgh art listings">
-        <h2>Current Edinburgh art listings and sources</h2>
-        <ul>
-          <li><a href="https://www.fruitmarket.co.uk/event/ilana-halperin/">Ilana Halperin: What is Us and What is Earth</a>, Fruitmarket, Old Town, free, current exhibition.</li>
-          <li><a href="https://www.fruitmarket.co.uk/event/night-walk-for-edinburgh-2/">Night Walk for Edinburgh</a>, Fruitmarket, Old Town, free audio walk.</li>
-          <li><a href="https://www.collective-edinburgh.art/programme/paloma-proudfoot">Paloma Proudfoot: Glass Delusion</a>, Collective, Calton Hill, free current exhibition.</li>
-          <li><a href="https://www.nationalgalleries.org/">Andy Warhol: Pop Power</a>, National Galleries of Scotland, Modern Two, paid exhibition.</li>
-          <li><a href="https://www.royalscottishacademy.org/">RSA Annual Exhibition 2026</a>, Royal Scottish Academy, New Town, free exhibition.</li>
-          <li><a href="https://www.summerhall.co.uk/">Rachael House: Born Again Bambi</a>, Summerhall, Southside, free visual art exhibition.</li>
-          <li><a href="https://dovecotstudios.com/">Belongings & Modern Alchemy</a>, Dovecot Studios, Old Town, textile and craft exhibition.</li>
-          <li><a href="https://www.inglebygallery.com/">Callum Innes: New Paintings</a>, Ingleby Gallery, New Town, free contemporary painting exhibition.</li>
-          <li><a href="https://www.jupiterartland.org/">Vanessa Billy: we become a changing light</a>, Jupiter Artland, West Edinburgh, paid exhibition and sculpture park programme.</li>
-          <li><a href="https://www.stills.org/">Stills Centre for Photography</a>, Old Town photography gallery and production centre.</li>
-          <li><a href="https://edinburghprintmakers.co.uk/">Edinburgh Printmakers</a>, Fountainbridge print studio, gallery and shop.</li>
-        </ul>
+      <section class="summary-bar" aria-label="Listing summary">
+        <p><strong id="listingCount">0</strong> results</p>
+        <p><strong id="venueCount">0</strong> venues</p>
+        <p><strong id="areaCount">0</strong> areas</p>
       </section>
 
-      <section id="routes" class="section-block" aria-labelledby="routesTitle">
-        <div class="section-heading compact">
-          <div>
-            <p class="section-kicker">Art walks</p>
-            <h2 id="routesTitle">Pick a route</h2>
-          </div>
-          <p>Simple trails for locals, visitors and festival days.</p>
-        </div>
-        <section id="routeGrid" class="route-grid"></section>
-      </section>
+      <section id="listingsGrid" class="agenda-list" aria-live="polite" aria-label="Edinburgh art listings"></section>
 
-      <section id="highlights" class="festival-panel" aria-labelledby="highlightsTitle">
-        <span class="panel-emoji" aria-hidden="true">✨</span>
+      <details class="source-details">
+        <summary>About and sources</summary>
         <div>
-          <p class="section-kicker">Seasonal highlights</p>
-          <h2 id="highlightsTitle">Special shows, routes and city-wide art moments.</h2>
-          <p>Use this space for changing highlights across the year: spring shows, summer open studios, August festival picks, winter exhibitions and one-off gallery trails.</p>
-          <div class="festival-actions"><span>Seasonal picks</span><span>Gallery trails</span><span>Open studios</span><span>Special events</span></div>
+          <h2>Current Edinburgh art exhibitions and sources</h2>
+          <p>Edinburgh Arts Info is a simple searchable calendar for current Edinburgh art exhibitions, galleries, free events and opening nights. Listings link to official venue sources for booking, access and final details.</p>
+          <ul>
+            <li><a href="https://www.fruitmarket.co.uk/event/ilana-halperin/">Fruitmarket</a></li>
+            <li><a href="https://www.collective-edinburgh.art/programme/paloma-proudfoot">Collective</a></li>
+            <li><a href="https://www.nationalgalleries.org/">National Galleries of Scotland</a></li>
+            <li><a href="https://www.royalscottishacademy.org/">Royal Scottish Academy</a></li>
+            <li><a href="https://www.summerhall.co.uk/">Summerhall</a></li>
+            <li><a href="https://dovecotstudios.com/">Dovecot Studios</a></li>
+            <li><a href="https://www.inglebygallery.com/">Ingleby Gallery</a></li>
+            <li><a href="https://www.jupiterartland.org/">Jupiter Artland</a></li>
+            <li><a href="https://www.stills.org/">Stills</a></li>
+            <li><a href="https://edinburghprintmakers.co.uk/">Edinburgh Printmakers</a></li>
+          </ul>
         </div>
-      </section>
-
-      <section id="submit" class="submit-panel" aria-labelledby="submitTitle">
-        <span class="panel-emoji" aria-hidden="true">📮</span>
-        <div>
-          <p class="section-kicker">Submit or update</p>
-          <h2 id="submitTitle">Got a listing?</h2>
-          <p>Galleries and artists can send title, venue, dates, image, access notes and booking link.</p>
-        </div>
-        <a class="button primary" href="mailto:hello@edinburgharts.info?subject=Edinburgh%20Arts%20Info%20listing">Send a listing</a>
-      </section>
+      </details>
     </main>
 
-    <footer class="site-footer page-shell">
-      <p>Edinburgh Arts Info, an independent guide to current Edinburgh art exhibitions, galleries, free events and art routes.</p>
-      <p><a href="#top">Back to top</a></p>
+    <footer class="app-footer">
+      <p>Edinburgh Arts Info, a simple art calendar for Edinburgh.</p>
+      <a href="#top">Back to top</a>
     </footer>
 
     <template id="listingTemplate">
-      <article class="listing-card" tabindex="0">
-        <div class="listing-date"><span class="listing-day"></span><span class="listing-month"></span></div>
-        <div class="listing-poster" aria-hidden="true"><span class="listing-emoji"></span><span class="listing-label"></span></div>
-        <div class="listing-body">
-          <div class="listing-topline"><span class="listing-type"></span><span class="listing-price"></span></div>
-          <h3 class="listing-title"></h3>
-          <p class="listing-meta"></p>
-          <p class="listing-description"></p>
-          <div class="listing-tags"></div>
-          <div class="listing-actions"><button class="preview-button" type="button">Quick preview</button><a class="source-link" target="_blank" rel="noreferrer">Official page</a><a class="calendar-link" target="_blank" rel="noreferrer">Add to calendar</a></div>
-          <div class="listing-preview" hidden>
-            <div class="preview-art"><span class="preview-emoji"></span><span class="preview-label"></span></div>
-            <div class="preview-copy">
-              <h4></h4>
-              <p class="preview-text"></p>
-              <p class="preview-note"></p>
-            </div>
+      <article class="event-row">
+        <div class="event-date">
+          <span class="event-day"></span>
+          <span class="event-month"></span>
+        </div>
+        <div class="event-main">
+          <div class="event-line">
+            <span class="event-emoji" aria-hidden="true"></span>
+            <h2 class="event-title"></h2>
+          </div>
+          <p class="event-meta"></p>
+          <p class="event-description"></p>
+          <div class="event-actions">
+            <a class="calendar-link" target="_blank" rel="noreferrer">Add to calendar</a>
+            <a class="source-link" target="_blank" rel="noreferrer">Official page</a>
           </div>
         </div>
+        <span class="event-price"></span>
       </article>
     </template>
 
-    <template id="routeTemplate"><article class="route-card"><span class="route-emoji"></span><span class="route-time"></span><h3></h3><p></p><ol></ol><div class="route-tags"></div></article></template>
-    <script src="./app.js?v=20260424-6" defer></script>
+    <script src="./app.js?v=20260424-7" defer></script>
   </body>
 </html>
