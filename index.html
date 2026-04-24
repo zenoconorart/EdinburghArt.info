@@ -7,111 +7,133 @@
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <title>Edinburgh Arts Info | Galleries, exhibitions and art routes</title>
     <meta name="description" content="A simple independent guide to Edinburgh galleries, exhibitions, art routes and festival-season visual culture." />
-    <link rel="canonical" href="https://edinburgharts.info/" />
-    <meta name="theme-color" content="#18130f" />
+    <link rel="canonical" href="https://zenoconorart.github.io/EdinburghArt.info/" />
+    <meta name="theme-color" content="#171411" />
     <meta property="og:title" content="Edinburgh Arts Info" />
     <meta property="og:description" content="Find exhibitions, galleries and easy art routes across Edinburgh." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://edinburgharts.info/" />
+    <meta property="og:url" content="https://zenoconorart.github.io/EdinburghArt.info/" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <div class="grain" aria-hidden="true"></div>
+
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Edinburgh Arts Info home">
-        <span class="brand-mark">EA</span>
-        <span><strong>Edinburgh Arts Info</strong><small>Galleries, exhibitions and routes</small></span>
+        <span class="brand-mark">🎨</span>
+        <span><strong>Edinburgh Arts Info</strong><small>What is showing, where to go</small></span>
       </a>
-      <nav class="top-nav" aria-label="Main navigation">
-        <a href="#listings">Listings</a>
-        <a href="#routes">Routes</a>
-        <a href="#festival">Festival mode</a>
-        <a href="#submit">Submit</a>
+      <nav class="topic-nav" aria-label="Browse the guide">
+        <a class="topic-link" href="#listings" data-jump-view="exhibitions"><span>🖼️</span>Exhibitions</a>
+        <a class="topic-link" href="#listings" data-jump-view="galleries"><span>🏛️</span>Galleries</a>
+        <a class="topic-link" href="#routes"><span>🗺️</span>Routes</a>
+        <a class="topic-link" href="#listings" data-jump-chip="evening"><span>🌙</span>Open late</a>
+        <a class="topic-link" href="#festival"><span>✨</span>Festival</a>
       </nav>
     </header>
 
-    <main id="top">
-      <section class="hero page-shell" aria-labelledby="heroTitle">
+    <main id="top" class="page-shell">
+      <section class="hero" aria-labelledby="heroTitle">
         <p class="section-kicker">Independent city guide</p>
-        <div class="hero-grid">
+        <div class="hero-heading">
+          <span class="hero-emoji" aria-hidden="true">🎨</span>
+          <h1 id="heroTitle">Find art in Edinburgh without the faff.</h1>
+        </div>
+        <p class="hero-copy">
+          A calm, simple guide to exhibitions, galleries, opening nights and easy art walks across the city.
+        </p>
+        <div class="hero-stats" aria-label="Guide summary">
+          <p><strong id="todayCount">0</strong><span>open listings</span></p>
+          <p><strong id="venueCountHero">0</strong><span>venues</span></p>
+          <p><strong>3</strong><span>easy routes</span></p>
+        </div>
+      </section>
+
+      <section id="listings" class="section-block" aria-labelledby="listingsTitle">
+        <div class="section-heading compact">
           <div>
-            <h1 id="heroTitle">The simple way to find art in Edinburgh.</h1>
-            <p class="hero-copy">Current exhibitions, gallery openings, artist-run spaces and easy walking routes across the city. Built to be quicker than scrolling through scattered venue pages.</p>
-            <div class="hero-actions">
-              <a class="button primary" href="#listings">See what is showing</a>
-              <a class="button secondary" href="#routes">Pick a route</a>
-            </div>
+            <p class="section-kicker">Current page</p>
+            <h2 id="listingsTitle">Exhibitions and galleries</h2>
           </div>
-          <aside class="hero-card" aria-label="Today summary">
-            <span class="today-label">Today</span>
-            <strong id="todayCount">0 open listings</strong>
-            <p id="todayHint">Filter by area, mood or time, then open the venue source for full details.</p>
-          </aside>
+          <p>Filter quickly, then follow the source link for full venue details.</p>
         </div>
-      </section>
 
-      <section class="page-shell feature-strip" aria-label="Site highlights">
-        <article><span>01</span><h2>What is open</h2><p>See live and upcoming exhibitions in one clean list.</p></article>
-        <article><span>02</span><h2>Where to go</h2><p>Browse by neighbourhood, from Old Town to Leith.</p></article>
-        <article><span>03</span><h2>How to spend a day</h2><p>Use walking routes for one-hour, half-day or festival visits.</p></article>
-      </section>
-
-      <section id="listings" class="page-shell section-block" aria-labelledby="listingsTitle">
-        <div class="section-heading">
-          <div><p class="section-kicker">Listings</p><h2 id="listingsTitle">Exhibitions and galleries</h2></div>
-          <p>A focused directory for visual art. Keep listings useful and free, then add featured placements later.</p>
-        </div>
         <div class="toolbar" aria-label="Filter listings">
           <label class="field">View<select id="viewFilter"><option value="all">Everything</option><option value="exhibitions">Exhibitions</option><option value="galleries">Galleries</option><option value="opening">Openings and events</option></select></label>
           <label class="field">Area<select id="areaFilter"><option value="all">All areas</option></select></label>
-          <label class="field field-search">Search<input id="searchFilter" type="search" placeholder="Fruitmarket, photography, free, Old Town..." /></label>
+          <label class="field field-search">Search<input id="searchFilter" type="search" placeholder="venue, artist, photography, free..." /></label>
         </div>
+
         <div class="quick-filters" aria-label="Quick filters">
           <button class="chip is-active" data-chip="all" type="button">All</button>
           <button class="chip" data-chip="free" type="button">Free</button>
-          <button class="chip" data-chip="quiet" type="button">Quiet visit</button>
-          <button class="chip" data-chip="family" type="button">Family friendly</button>
+          <button class="chip" data-chip="quiet" type="button">Quiet</button>
+          <button class="chip" data-chip="family" type="button">Family</button>
           <button class="chip" data-chip="evening" type="button">Evening</button>
         </div>
-        <section class="statline" aria-label="Listing summary"><p><span id="listingCount">0</span> listings</p><p><span id="venueCount">0</span> venues</p><p><span id="areaCount">0</span> areas</p></section>
+
+        <section class="statline" aria-label="Listing summary">
+          <p><span id="listingCount">0</span> listings</p>
+          <p><span id="venueCount">0</span> venues</p>
+          <p><span id="areaCount">0</span> areas</p>
+        </section>
+
         <section id="listingsGrid" class="card-grid" aria-live="polite"></section>
       </section>
 
-      <section id="routes" class="page-shell section-block" aria-labelledby="routesTitle">
-        <div class="section-heading">
-          <div><p class="section-kicker">Routes</p><h2 id="routesTitle">Easy art walks</h2></div>
-          <p>Routes are the strongest difference from ordinary listings. They make the site useful for locals, tourists and festival visitors.</p>
+      <section id="routes" class="section-block" aria-labelledby="routesTitle">
+        <div class="section-heading compact">
+          <div>
+            <p class="section-kicker">Art walks</p>
+            <h2 id="routesTitle">Pick a route</h2>
+          </div>
+          <p>Simple trails for locals, visitors and festival days.</p>
         </div>
         <section id="routeGrid" class="route-grid"></section>
       </section>
 
-      <section id="festival" class="page-shell festival-panel" aria-labelledby="festivalTitle">
-        <p class="section-kicker">Festival mode</p>
-        <h2 id="festivalTitle">Built for the August rush.</h2>
-        <p>When Edinburgh Art Festival season arrives, this page can become a calmer alternative to difficult festival navigation: what is open today, what is nearby, what is free, and what can be done in one walk.</p>
-        <div class="festival-actions"><span>Daily picks</span><span>Gallery trails</span><span>Opening nights</span><span>Map-first browsing</span></div>
+      <section id="festival" class="festival-panel" aria-labelledby="festivalTitle">
+        <span class="panel-emoji" aria-hidden="true">✨</span>
+        <div>
+          <p class="section-kicker">Festival mode</p>
+          <h2 id="festivalTitle">Made for the August rush.</h2>
+          <p>Daily picks, calmer gallery trails, what is open nearby and what is free, all without wading through a maze of tabs.</p>
+          <div class="festival-actions"><span>Daily picks</span><span>Gallery trails</span><span>Opening nights</span><span>Map-first browsing</span></div>
+        </div>
       </section>
 
-      <section id="submit" class="page-shell submit-panel" aria-labelledby="submitTitle">
-        <div><p class="section-kicker">Submit or update</p><h2 id="submitTitle">For galleries, artists and spaces</h2><p>This is ready for a simple submissions form later. For now, galleries can send exhibition title, venue, dates, image, access notes and booking link.</p></div>
+      <section id="submit" class="submit-panel" aria-labelledby="submitTitle">
+        <span class="panel-emoji" aria-hidden="true">📮</span>
+        <div>
+          <p class="section-kicker">Submit or update</p>
+          <h2 id="submitTitle">Got a listing?</h2>
+          <p>Galleries and artists can send title, venue, dates, image, access notes and booking link.</p>
+        </div>
         <a class="button primary" href="mailto:hello@edinburgharts.info?subject=Edinburgh%20Arts%20Info%20listing">Send a listing</a>
       </section>
     </main>
 
-    <footer class="site-footer page-shell"><p>Edinburgh Arts Info, an independent guide to galleries, exhibitions and art routes.</p><p><a href="#top">Back to top</a></p></footer>
+    <footer class="site-footer page-shell">
+      <p>Edinburgh Arts Info, an independent guide to galleries, exhibitions and art routes.</p>
+      <p><a href="#top">Back to top</a></p>
+    </footer>
 
     <template id="listingTemplate">
       <article class="listing-card">
         <div class="listing-date"><span class="listing-day"></span><span class="listing-month"></span></div>
+        <div class="listing-poster" aria-hidden="true"><span class="listing-emoji"></span><span class="listing-label"></span></div>
         <div class="listing-body">
           <div class="listing-topline"><span class="listing-type"></span><span class="listing-price"></span></div>
-          <h3 class="listing-title"></h3><p class="listing-meta"></p><p class="listing-description"></p><div class="listing-tags"></div>
+          <h3 class="listing-title"></h3>
+          <p class="listing-meta"></p>
+          <p class="listing-description"></p>
+          <div class="listing-tags"></div>
           <div class="listing-actions"><a class="source-link" target="_blank" rel="noreferrer">Open source</a><a class="calendar-link" target="_blank" rel="noreferrer">Add to calendar</a></div>
         </div>
       </article>
     </template>
 
-    <template id="routeTemplate"><article class="route-card"><span class="route-time"></span><h3></h3><p></p><ol></ol><div class="route-tags"></div></article></template>
+    <template id="routeTemplate"><article class="route-card"><span class="route-emoji"></span><span class="route-time"></span><h3></h3><p></p><ol></ol><div class="route-tags"></div></article></template>
     <script src="./app.js" defer></script>
   </body>
 </html>
