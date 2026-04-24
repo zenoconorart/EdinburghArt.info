@@ -17,38 +17,32 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Edinburgh Art Calendar" />
     <meta name="twitter:description" content="Find what art is showing in Edinburgh now." />
-    <link rel="stylesheet" href="./styles.css?v=20260424-8" />
+    <link rel="stylesheet" href="./styles.css?v=20260424-9" />
   </head>
   <body>
     <header class="app-header">
       <a class="brand" href="#top" aria-label="Edinburgh Arts Info home">
         <span class="brand-mark">🎨</span>
-        <span><strong>Edinburgh Arts Info</strong><small>Art calendar</small></span>
+        <span><strong>Edinburgh Arts Info</strong><small>Simple art listings</small></span>
       </a>
       <p class="header-count"><span id="todayCount">0</span> happening now</p>
     </header>
 
     <main id="top" class="app-shell">
       <section class="search-panel" aria-labelledby="pageTitle">
-        <p class="eyebrow">Independent Edinburgh art listings</p>
-        <h1 id="pageTitle">Find art in Edinburgh.</h1>
+        <h1 id="pageTitle">Edinburgh art calendar</h1>
         <label class="search-field" for="searchFilter">
-          <span>Search</span>
-          <input id="searchFilter" type="search" placeholder="Search venue, artist, area, free, photography..." autocomplete="off" />
+          <span class="visually-hidden">Search Edinburgh art listings</span>
+          <input id="searchFilter" type="search" placeholder="Search exhibitions, galleries, artists, areas..." autocomplete="off" />
         </label>
 
-        <nav class="view-tabs" aria-label="Quick views">
-          <button class="tab-button is-active" data-view-tab="exhibitions" type="button">🖼️ Exhibitions</button>
-          <button class="tab-button" data-view-tab="galleries" type="button">🏛️ Galleries</button>
-          <button class="tab-button" data-price-tab="free" type="button">💸 Free</button>
-          <button class="tab-button" data-view-tab="opening" type="button">🥂 Openings</button>
-        </nav>
-
         <div class="filter-row" aria-label="Filter listings">
-          <label>View<select id="viewFilter"><option value="exhibitions" selected>Exhibitions</option><option value="all">All</option><option value="galleries">Galleries</option><option value="opening">Openings</option></select></label>
-          <label>When<select id="timeFilter"><option value="now" selected>Now</option><option value="upcoming">Upcoming</option><option value="all-current">All current</option></select></label>
-          <label>Price<select id="priceFilter"><option value="all">Any price</option><option value="free">Free</option><option value="paid">Paid</option><option value="under10">Under £10</option><option value="varies">Varies</option></select></label>
+          <label>What<select id="viewFilter"><option value="exhibitions" selected>Exhibitions</option><option value="all">Everything</option><option value="galleries">Galleries</option><option value="opening">Openings and events</option></select></label>
+          <label>When<select id="timeFilter"><option value="now" selected>Happening now</option><option value="upcoming">Upcoming</option><option value="all-current">Now and upcoming</option></select></label>
+          <label>Price<select id="priceFilter"><option value="all">Any price</option><option value="free">Free</option><option value="paid">Paid</option><option value="under10">Under £10</option><option value="varies">Varies / check source</option></select></label>
           <label>Area<select id="areaFilter"><option value="all">All areas</option></select></label>
+          <label>Venue<select id="venueFilter"><option value="all">All venues</option></select></label>
+          <label>Category<select id="tagFilter"><option value="all">All categories</option><option value="painting">Painting</option><option value="sculpture">Sculpture</option><option value="photography">Photography</option><option value="printmaking">Printmaking</option><option value="textiles">Textiles</option><option value="family">Family</option><option value="evening">Evening</option><option value="quiet">Quiet</option><option value="outdoors">Outdoors</option><option value="workshop">Workshop</option></select></label>
         </div>
       </section>
 
@@ -101,6 +95,6 @@
       </article>
     </template>
 
-    <script src="./app.js?v=20260424-8" defer></script>
+    <script src="./app.js?v=20260424-9" defer></script>
   </body>
 </html>
