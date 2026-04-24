@@ -17,16 +17,13 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Edinburgh Art Calendar" />
     <meta name="twitter:description" content="Find what art is showing in Edinburgh now." />
-    <link rel="stylesheet" href="./styles.css?v=20260424-7" />
+    <link rel="stylesheet" href="./styles.css?v=20260424-8" />
   </head>
   <body>
     <header class="app-header">
       <a class="brand" href="#top" aria-label="Edinburgh Arts Info home">
         <span class="brand-mark">🎨</span>
-        <span>
-          <strong>Edinburgh Arts Info</strong>
-          <small>Art calendar</small>
-        </span>
+        <span><strong>Edinburgh Arts Info</strong><small>Art calendar</small></span>
       </a>
       <p class="header-count"><span id="todayCount">0</span> happening now</p>
     </header>
@@ -40,19 +37,18 @@
           <input id="searchFilter" type="search" placeholder="Search venue, artist, area, free, photography..." autocomplete="off" />
         </label>
 
+        <nav class="view-tabs" aria-label="Quick views">
+          <button class="tab-button is-active" data-view-tab="exhibitions" type="button">🖼️ Exhibitions</button>
+          <button class="tab-button" data-view-tab="galleries" type="button">🏛️ Galleries</button>
+          <button class="tab-button" data-price-tab="free" type="button">💸 Free</button>
+          <button class="tab-button" data-view-tab="opening" type="button">🥂 Openings</button>
+        </nav>
+
         <div class="filter-row" aria-label="Filter listings">
           <label>View<select id="viewFilter"><option value="exhibitions" selected>Exhibitions</option><option value="all">All</option><option value="galleries">Galleries</option><option value="opening">Openings</option></select></label>
           <label>When<select id="timeFilter"><option value="now" selected>Now</option><option value="upcoming">Upcoming</option><option value="all-current">All current</option></select></label>
           <label>Price<select id="priceFilter"><option value="all">Any price</option><option value="free">Free</option><option value="paid">Paid</option><option value="under10">Under £10</option><option value="varies">Varies</option></select></label>
           <label>Area<select id="areaFilter"><option value="all">All areas</option></select></label>
-        </div>
-
-        <div class="quick-row" aria-label="Quick filters">
-          <button class="chip is-active" data-chip="all" type="button">All</button>
-          <button class="chip" data-chip="free" type="button">Free</button>
-          <button class="chip" data-chip="quiet" type="button">Quiet</button>
-          <button class="chip" data-chip="family" type="button">Family</button>
-          <button class="chip" data-chip="evening" type="button">Evening</button>
         </div>
       </section>
 
@@ -62,7 +58,7 @@
         <p><strong id="areaCount">0</strong> areas</p>
       </section>
 
-      <section id="listingsGrid" class="agenda-list" aria-live="polite" aria-label="Edinburgh art listings"></section>
+      <section id="listingsGrid" class="listing-grid" aria-live="polite" aria-label="Edinburgh art listings"></section>
 
       <details class="source-details">
         <summary>About and sources</summary>
@@ -91,27 +87,20 @@
     </footer>
 
     <template id="listingTemplate">
-      <article class="event-row">
-        <div class="event-date">
-          <span class="event-day"></span>
-          <span class="event-month"></span>
+      <article class="listing-card">
+        <div class="card-topline">
+          <div class="event-date"><span class="event-day"></span><span class="event-month"></span></div>
+          <span class="event-price"></span>
         </div>
         <div class="event-main">
-          <div class="event-line">
-            <span class="event-emoji" aria-hidden="true"></span>
-            <h2 class="event-title"></h2>
-          </div>
+          <div class="event-line"><span class="event-emoji" aria-hidden="true"></span><h2 class="event-title"></h2></div>
           <p class="event-meta"></p>
           <p class="event-description"></p>
-          <div class="event-actions">
-            <a class="calendar-link" target="_blank" rel="noreferrer">Add to calendar</a>
-            <a class="source-link" target="_blank" rel="noreferrer">Official page</a>
-          </div>
+          <div class="event-actions"><a class="calendar-link" target="_blank" rel="noreferrer">Add to calendar</a><a class="source-link" target="_blank" rel="noreferrer">Official page</a></div>
         </div>
-        <span class="event-price"></span>
       </article>
     </template>
 
-    <script src="./app.js?v=20260424-7" defer></script>
+    <script src="./app.js?v=20260424-8" defer></script>
   </body>
 </html>
