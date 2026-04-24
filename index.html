@@ -13,7 +13,7 @@
     <meta property="og:description" content="Find exhibitions, galleries and easy art routes across Edinburgh." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://zenoconorart.github.io/EdinburghArt.info/" />
-    <link rel="stylesheet" href="./styles.css?v=20260424-2" />
+    <link rel="stylesheet" href="./styles.css?v=20260424-3" />
   </head>
   <body>
     <div class="grain" aria-hidden="true"></div>
@@ -27,7 +27,7 @@
         <a class="topic-link" href="#listings" data-jump-view="exhibitions"><span>🖼️</span>Exhibitions</a>
         <a class="topic-link" href="#listings" data-jump-view="galleries"><span>🏛️</span>Galleries</a>
         <a class="topic-link" href="#routes"><span>🗺️</span>Routes</a>
-        <a class="topic-link" href="#listings" data-jump-chip="evening"><span>🌙</span>Open late</a>
+        <a class="topic-link" href="#listings" data-jump-chip="free"><span>💸</span>Free</a>
         <a class="topic-link" href="#festival"><span>✨</span>Festival</a>
       </nav>
     </header>
@@ -43,7 +43,7 @@
           A calm, simple guide to exhibitions, galleries, opening nights and easy art walks across the city.
         </p>
         <div class="hero-stats" aria-label="Guide summary">
-          <p><strong id="todayCount">0</strong><span> open listings</span></p>
+          <p><strong id="todayCount">0</strong><span> happening now</span></p>
           <p><strong id="venueCountHero">0</strong><span> venues</span></p>
           <p><strong>3</strong><span> easy routes</span></p>
         </div>
@@ -53,15 +53,17 @@
         <div class="section-heading compact">
           <div>
             <p class="section-kicker">Current page</p>
-            <h2 id="listingsTitle">Exhibitions and galleries</h2>
+            <h2 id="listingsTitle">Happening now</h2>
           </div>
-          <p>Filter quickly, then follow the source link for full venue details.</p>
+          <p>Current exhibitions are shown by default. Use price, area and search to narrow things down.</p>
         </div>
 
         <div class="toolbar" aria-label="Filter listings">
-          <label class="field">View<select id="viewFilter"><option value="all">Everything</option><option value="exhibitions">Exhibitions</option><option value="galleries">Galleries</option><option value="opening">Openings and events</option></select></label>
+          <label class="field">View<select id="viewFilter"><option value="exhibitions" selected>Exhibitions</option><option value="all">Everything</option><option value="galleries">Galleries</option><option value="opening">Openings and events</option></select></label>
+          <label class="field">When<select id="timeFilter"><option value="now" selected>Happening now</option><option value="upcoming">Upcoming</option><option value="all-current">Now and upcoming</option></select></label>
+          <label class="field">Price<select id="priceFilter"><option value="all">All prices</option><option value="free">Free</option><option value="paid">Paid</option><option value="under10">Under £10</option><option value="varies">Varies / see source</option></select></label>
           <label class="field">Area<select id="areaFilter"><option value="all">All areas</option></select></label>
-          <label class="field field-search">Search<input id="searchFilter" type="search" placeholder="venue, artist, photography, free..." /></label>
+          <label class="field field-search">Search<input id="searchFilter" type="search" placeholder="venue, artist, free, £, photography..." /></label>
         </div>
 
         <div class="quick-filters" aria-label="Quick filters">
@@ -134,6 +136,6 @@
     </template>
 
     <template id="routeTemplate"><article class="route-card"><span class="route-emoji"></span><span class="route-time"></span><h3></h3><p></p><ol></ol><div class="route-tags"></div></article></template>
-    <script src="./app.js?v=20260424-2" defer></script>
+    <script src="./app.js?v=20260424-3" defer></script>
   </body>
 </html>
