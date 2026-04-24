@@ -208,6 +208,7 @@ const venueCount = document.querySelector('#venueCount');
 const areaCount = document.querySelector('#areaCount');
 const todayCount = document.querySelector('#todayCount');
 const listingTemplate = document.querySelector('#listingTemplate');
+const visualTiles = [...document.querySelectorAll('[data-view-tab], [data-price-tab], [data-tag-tab]')];
 
 function isHappeningNow(item) {
   const now = new Date();
@@ -307,6 +308,10 @@ function populateDynamicFilters() {
   state.venue = venueFilter.value;
 }
 
+function setTileActive(activeTile = null) {
+  visualTiles.forEach((tile) => tile.classList.toggle('is-active', tile === activeTile));
+}
+
 function renderListings() {
   const items = visibleListings();
   const nowItems = activeListings().filter((item) => item.kind === 'exhibitions' && isHappeningNow(item));
@@ -346,13 +351,23 @@ function renderPage() {
 }
 
 function bindEvents() {
-  viewFilter.addEventListener('change', (event) => { state.view = event.target.value; renderPage(); });
+  viewFilter.addEventListener('change', (event) => { state.view = event.target.value; setTileActive(); renderPage(); });
   timeFilter.addEventListener('change', (event) => { state.time = event.target.value; renderListings(); });
-  priceFilter.addEventListener('change', (event) => { state.price = event.target.value; renderListings(); });
+  priceFilter.addEventListener('change', (event) => { state.price = event.target.value; setTileActive(); renderListings(); });
   areaFilter.addEventListener('change', (event) => { state.area = event.target.value; renderListings(); });
   venueFilter.addEventListener('change', (event) => { state.venue = event.target.value; renderListings(); });
-  tagFilter.addEventListener('change', (event) => { state.tag = event.target.value; renderListings(); });
+  tagFilter.addEventListener('change', (event) => { state.tag = event.target.value; setTileActive(); renderListings(); });
   searchFilter.addEventListener('input', (event) => { state.search = event.target.value; renderListings(); });
+  visualTiles.forEach((tile) => tile.addEventListener('click', () => {
+    state.view = tile.dataset.viewTab || 'all';
+    state.price = tile.dataset.priceTab || 'all';
+    state.tag = tile.dataset.tagTab || 'all';
+    viewFilter.value = state.view;
+    priceFilter.value = state.price;
+    tagFilter.value = state.tag;
+    setTileActive(tile);
+    renderPage();
+  }));
 }
 
 renderPage();
