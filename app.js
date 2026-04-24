@@ -193,12 +193,14 @@ const listings = [
   }
 ];
 
-const state = { view: 'exhibitions', time: 'now', price: 'all', area: 'all', search: '', chip: 'all' };
+const state = { view: 'exhibitions', time: 'now', price: 'all', area: 'all', venue: 'all', tag: 'all', search: '' };
 
 const viewFilter = document.querySelector('#viewFilter');
 const timeFilter = document.querySelector('#timeFilter');
 const priceFilter = document.querySelector('#priceFilter');
 const areaFilter = document.querySelector('#areaFilter');
+const venueFilter = document.querySelector('#venueFilter');
+const tagFilter = document.querySelector('#tagFilter');
 const searchFilter = document.querySelector('#searchFilter');
 const listingsGrid = document.querySelector('#listingsGrid');
 const listingCount = document.querySelector('#listingCount');
@@ -206,7 +208,6 @@ const venueCount = document.querySelector('#venueCount');
 const areaCount = document.querySelector('#areaCount');
 const todayCount = document.querySelector('#todayCount');
 const listingTemplate = document.querySelector('#listingTemplate');
-const tabButtons = [...document.querySelectorAll('[data-view-tab], [data-price-tab]')];
 
 function isHappeningNow(item) {
   const now = new Date();
@@ -236,6 +237,8 @@ function visibleListings() {
     if (!timeMatches(item)) return false;
     if (!priceMatches(item)) return false;
     if (state.area !== 'all' && item.area !== state.area) return false;
+    if (state.venue !== 'all' && item.venue !== state.venue) return false;
+    if (state.tag !== 'all' && !item.tags.includes(state.tag)) return false;
     const haystack = [item.title, item.type, item.venue, item.area, item.price, item.description, ...item.tags].join(' ').toLowerCase();
     return !query || haystack.includes(query);
   });
@@ -287,23 +290,21 @@ function calendarUrl(item) {
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
 }
 
-function updateTabs(activeElement = null) {
-  tabButtons.forEach((button) => button.classList.toggle('is-active', button === activeElement));
+function fillSelect(select, values, firstLabel) {
+  const current = select.value || 'all';
+  select.innerHTML = `<option value="all">${firstLabel}</option>`;
+  values.forEach((value) => select.append(new Option(value, value)));
+  select.value = values.includes(current) ? current : 'all';
 }
 
-function populateAreas() {
-  const areas = [...new Set(activeListings().filter((item) => state.view === 'all' || item.kind === state.view).map((item) => item.area))].sort();
-  areaFilter.innerHTML = '<option value="all">All areas</option>';
-  areas.forEach((area) => areaFilter.append(new Option(area, area)));
-  if (!areas.includes(state.area)) {
-    state.area = 'all';
-    areaFilter.value = 'all';
-  }
-}
-
-function setPrice(priceValue) {
-  state.price = priceValue;
-  priceFilter.value = priceValue;
+function populateDynamicFilters() {
+  const current = activeListings().filter((item) => state.view === 'all' || item.kind === state.view);
+  const areas = [...new Set(current.map((item) => item.area))].sort();
+  const venues = [...new Set(current.map((item) => item.venue))].sort();
+  fillSelect(areaFilter, areas, 'All areas');
+  fillSelect(venueFilter, venues, 'All venues');
+  state.area = areaFilter.value;
+  state.venue = venueFilter.value;
 }
 
 function renderListings() {
@@ -316,7 +317,7 @@ function renderListings() {
   todayCount.textContent = String(nowItems.length);
 
   if (!items.length) {
-    listingsGrid.innerHTML = '<section class="empty-state"><h2>No results</h2><p>Try clearing search, changing price, or setting When to all current.</p></section>';
+    listingsGrid.innerHTML = '<section class="empty-state"><h2>No results</h2><p>Try clearing search, changing price, or setting When to now and upcoming.</p></section>';
     return;
   }
 
@@ -340,32 +341,18 @@ function renderListings() {
 }
 
 function renderPage() {
-  populateAreas();
+  populateDynamicFilters();
   renderListings();
 }
 
 function bindEvents() {
-  viewFilter.addEventListener('change', (event) => { state.view = event.target.value; updateTabs(); renderPage(); });
+  viewFilter.addEventListener('change', (event) => { state.view = event.target.value; renderPage(); });
   timeFilter.addEventListener('change', (event) => { state.time = event.target.value; renderListings(); });
-  priceFilter.addEventListener('change', (event) => { setPrice(event.target.value); updateTabs(); renderListings(); });
+  priceFilter.addEventListener('change', (event) => { state.price = event.target.value; renderListings(); });
   areaFilter.addEventListener('change', (event) => { state.area = event.target.value; renderListings(); });
+  venueFilter.addEventListener('change', (event) => { state.venue = event.target.value; renderListings(); });
+  tagFilter.addEventListener('change', (event) => { state.tag = event.target.value; renderListings(); });
   searchFilter.addEventListener('input', (event) => { state.search = event.target.value; renderListings(); });
-  tabButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      if (button.dataset.viewTab) {
-        state.view = button.dataset.viewTab;
-        viewFilter.value = state.view;
-        if (button.dataset.viewTab !== 'opening') setPrice('all');
-      }
-      if (button.dataset.priceTab) {
-        state.view = 'all';
-        viewFilter.value = 'all';
-        setPrice(button.dataset.priceTab);
-      }
-      updateTabs(button);
-      renderPage();
-    });
-  });
 }
 
 renderPage();
