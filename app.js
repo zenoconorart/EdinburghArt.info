@@ -206,7 +206,7 @@ const venueCount = document.querySelector('#venueCount');
 const areaCount = document.querySelector('#areaCount');
 const todayCount = document.querySelector('#todayCount');
 const listingTemplate = document.querySelector('#listingTemplate');
-const chipButtons = [...document.querySelectorAll('[data-chip]')];
+const tabButtons = [...document.querySelectorAll('[data-view-tab], [data-price-tab]')];
 
 function isHappeningNow(item) {
   const now = new Date();
@@ -236,7 +236,6 @@ function visibleListings() {
     if (!timeMatches(item)) return false;
     if (!priceMatches(item)) return false;
     if (state.area !== 'all' && item.area !== state.area) return false;
-    if (state.chip !== 'all' && !item.tags.includes(state.chip)) return false;
     const haystack = [item.title, item.type, item.venue, item.area, item.price, item.description, ...item.tags].join(' ').toLowerCase();
     return !query || haystack.includes(query);
   });
@@ -288,6 +287,10 @@ function calendarUrl(item) {
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
 }
 
+function updateTabs(activeElement = null) {
+  tabButtons.forEach((button) => button.classList.toggle('is-active', button === activeElement));
+}
+
 function populateAreas() {
   const areas = [...new Set(activeListings().filter((item) => state.view === 'all' || item.kind === state.view).map((item) => item.area))].sort();
   areaFilter.innerHTML = '<option value="all">All areas</option>';
@@ -298,19 +301,9 @@ function populateAreas() {
   }
 }
 
-function setChip(chipValue) {
-  state.chip = chipValue;
-  if (chipValue === 'free') {
-    state.price = 'free';
-    priceFilter.value = 'free';
-  }
-  chipButtons.forEach((chip) => chip.classList.toggle('is-active', chip.dataset.chip === chipValue));
-}
-
 function setPrice(priceValue) {
   state.price = priceValue;
   priceFilter.value = priceValue;
-  if (priceValue !== 'free' && state.chip === 'free') setChip('all');
 }
 
 function renderListings() {
@@ -352,12 +345,27 @@ function renderPage() {
 }
 
 function bindEvents() {
-  viewFilter.addEventListener('change', (event) => { state.view = event.target.value; renderPage(); });
+  viewFilter.addEventListener('change', (event) => { state.view = event.target.value; updateTabs(); renderPage(); });
   timeFilter.addEventListener('change', (event) => { state.time = event.target.value; renderListings(); });
-  priceFilter.addEventListener('change', (event) => { setPrice(event.target.value); renderListings(); });
+  priceFilter.addEventListener('change', (event) => { setPrice(event.target.value); updateTabs(); renderListings(); });
   areaFilter.addEventListener('change', (event) => { state.area = event.target.value; renderListings(); });
   searchFilter.addEventListener('input', (event) => { state.search = event.target.value; renderListings(); });
-  chipButtons.forEach((button) => button.addEventListener('click', () => { setChip(button.dataset.chip); renderListings(); }));
+  tabButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      if (button.dataset.viewTab) {
+        state.view = button.dataset.viewTab;
+        viewFilter.value = state.view;
+        if (button.dataset.viewTab !== 'opening') setPrice('all');
+      }
+      if (button.dataset.priceTab) {
+        state.view = 'all';
+        viewFilter.value = 'all';
+        setPrice(button.dataset.priceTab);
+      }
+      updateTabs(button);
+      renderPage();
+    });
+  });
 }
 
 renderPage();
