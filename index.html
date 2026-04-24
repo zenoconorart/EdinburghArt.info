@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <title>Edinburgh Arts Info | Galleries, exhibitions and art routes</title>
-    <meta name="description" content="A simple independent guide to Edinburgh galleries, exhibitions, art routes and festival-season visual culture." />
+    <title>Edinburgh Art Exhibitions, Galleries & Free Events | Edinburgh Arts Info</title>
+    <meta name="description" content="Find current Edinburgh art exhibitions, free gallery events, opening nights, art walks and festival listings. An independent guide to what is showing in Edinburgh now." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href="https://zenoconorart.github.io/EdinburghArt.info/" />
     <meta name="theme-color" content="#171411" />
-    <meta property="og:title" content="Edinburgh Arts Info" />
-    <meta property="og:description" content="Find exhibitions, galleries and easy art routes across Edinburgh." />
+    <meta property="og:title" content="Edinburgh Art Exhibitions, Galleries & Free Events" />
+    <meta property="og:description" content="A simple independent guide to current Edinburgh art exhibitions, galleries, free events, opening nights, art walks and festival listings." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://zenoconorart.github.io/EdinburghArt.info/" />
-    <link rel="stylesheet" href="./styles.css?v=20260424-3" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Edinburgh Art Exhibitions, Galleries & Free Events" />
+    <meta name="twitter:description" content="Find what art is showing in Edinburgh now, including free exhibitions, galleries, opening nights and art walks." />
+    <link rel="stylesheet" href="./styles.css?v=20260424-4" />
   </head>
   <body>
     <div class="grain" aria-hidden="true"></div>
@@ -21,32 +25,40 @@
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Edinburgh Arts Info home">
         <span class="brand-mark">🎨</span>
-        <span><strong>Edinburgh Arts Info</strong><small>What is showing, where to go</small></span>
+        <span><strong>Edinburgh Arts Info</strong><small>Current exhibitions, galleries and art walks</small></span>
       </a>
-      <nav class="topic-nav" aria-label="Browse the guide">
-        <a class="topic-link" href="#listings" data-jump-view="exhibitions"><span>🖼️</span>Exhibitions</a>
+      <nav class="topic-nav" aria-label="Browse Edinburgh art listings">
+        <a class="topic-link" href="#listings" data-jump-view="exhibitions"><span>🖼️</span>Current exhibitions</a>
         <a class="topic-link" href="#listings" data-jump-view="galleries"><span>🏛️</span>Galleries</a>
-        <a class="topic-link" href="#routes"><span>🗺️</span>Routes</a>
-        <a class="topic-link" href="#listings" data-jump-chip="free"><span>💸</span>Free</a>
-        <a class="topic-link" href="#festival"><span>✨</span>Festival</a>
+        <a class="topic-link" href="#listings" data-jump-price="free"><span>💸</span>Free art events</a>
+        <a class="topic-link" href="#listings" data-jump-view="opening"><span>🥂</span>Opening nights</a>
+        <a class="topic-link" href="#routes"><span>🗺️</span>Art walks</a>
+        <a class="topic-link" href="#festival"><span>✨</span>Festival guide</a>
       </nav>
     </header>
 
     <main id="top" class="page-shell">
       <section class="hero" aria-labelledby="heroTitle">
-        <p class="section-kicker">Independent city guide</p>
+        <p class="section-kicker">Independent Edinburgh art guide</p>
         <div class="hero-heading">
           <span class="hero-emoji" aria-hidden="true">🎨</span>
-          <h1 id="heroTitle">Find art in Edinburgh without the faff.</h1>
+          <h1 id="heroTitle">Edinburgh art exhibitions, galleries and free events.</h1>
         </div>
         <p class="hero-copy">
-          A calm, simple guide to exhibitions, galleries, opening nights and easy art walks across the city.
+          Find what art is showing in Edinburgh now: current exhibitions, free gallery shows, opening nights, art walks and festival listings.
         </p>
         <div class="hero-stats" aria-label="Guide summary">
           <p><strong id="todayCount">0</strong><span> happening now</span></p>
           <p><strong id="venueCountHero">0</strong><span> venues</span></p>
-          <p><strong>3</strong><span> easy routes</span></p>
+          <p><strong>6</strong><span> ways to browse</span></p>
         </div>
+      </section>
+
+      <section class="seo-intro" aria-label="About this Edinburgh art guide">
+        <h2>What’s on in Edinburgh art now</h2>
+        <p>
+          Edinburgh Arts Info is an independent listings guide for people looking for current art exhibitions in Edinburgh, free gallery events, contemporary art spaces, opening nights and walkable art routes. Listings link back to official venue sources wherever possible.
+        </p>
       </section>
 
       <section id="listings" class="section-block" aria-labelledby="listingsTitle">
@@ -83,6 +95,23 @@
         <section id="listingsGrid" class="card-grid" aria-live="polite"></section>
       </section>
 
+      <section class="crawlable-listings" aria-label="Crawlable current Edinburgh art listings">
+        <h2>Current Edinburgh art listings and sources</h2>
+        <ul>
+          <li><a href="https://www.fruitmarket.co.uk/event/ilana-halperin/">Ilana Halperin: What is Us and What is Earth</a>, Fruitmarket, Old Town, free, current exhibition.</li>
+          <li><a href="https://www.fruitmarket.co.uk/event/night-walk-for-edinburgh-2/">Night Walk for Edinburgh</a>, Fruitmarket, Old Town, free audio walk.</li>
+          <li><a href="https://www.collective-edinburgh.art/programme/paloma-proudfoot">Paloma Proudfoot: Glass Delusion</a>, Collective, Calton Hill, free current exhibition.</li>
+          <li><a href="https://www.nationalgalleries.org/">Andy Warhol: Pop Power</a>, National Galleries of Scotland, Modern Two, paid exhibition.</li>
+          <li><a href="https://www.royalscottishacademy.org/">RSA Annual Exhibition 2026</a>, Royal Scottish Academy, New Town, free exhibition.</li>
+          <li><a href="https://www.summerhall.co.uk/">Rachael House: Born Again Bambi</a>, Summerhall, Southside, free visual art exhibition.</li>
+          <li><a href="https://dovecotstudios.com/">Belongings & Modern Alchemy</a>, Dovecot Studios, Old Town, textile and craft exhibition.</li>
+          <li><a href="https://www.inglebygallery.com/">Callum Innes: New Paintings</a>, Ingleby Gallery, New Town, free contemporary painting exhibition.</li>
+          <li><a href="https://www.jupiterartland.org/">Vanessa Billy: we become a changing light</a>, Jupiter Artland, West Edinburgh, paid exhibition and sculpture park programme.</li>
+          <li><a href="https://www.stills.org/">Stills Centre for Photography</a>, Old Town photography gallery and production centre.</li>
+          <li><a href="https://edinburghprintmakers.co.uk/">Edinburgh Printmakers</a>, Fountainbridge print studio, gallery and shop.</li>
+        </ul>
+      </section>
+
       <section id="routes" class="section-block" aria-labelledby="routesTitle">
         <div class="section-heading compact">
           <div>
@@ -98,7 +127,7 @@
         <span class="panel-emoji" aria-hidden="true">✨</span>
         <div>
           <p class="section-kicker">Festival mode</p>
-          <h2 id="festivalTitle">Made for the August rush.</h2>
+          <h2 id="festivalTitle">Edinburgh Art Festival guide mode.</h2>
           <p>Daily picks, calmer gallery trails, what is open nearby and what is free, all without wading through a maze of tabs.</p>
           <div class="festival-actions"><span>Daily picks</span><span>Gallery trails</span><span>Opening nights</span><span>Map-first browsing</span></div>
         </div>
@@ -116,7 +145,7 @@
     </main>
 
     <footer class="site-footer page-shell">
-      <p>Edinburgh Arts Info, an independent guide to galleries, exhibitions and art routes.</p>
+      <p>Edinburgh Arts Info, an independent guide to current Edinburgh art exhibitions, galleries, free events and art routes.</p>
       <p><a href="#top">Back to top</a></p>
     </footer>
 
@@ -136,6 +165,6 @@
     </template>
 
     <template id="routeTemplate"><article class="route-card"><span class="route-emoji"></span><span class="route-time"></span><h3></h3><p></p><ol></ol><div class="route-tags"></div></article></template>
-    <script src="./app.js?v=20260424-3" defer></script>
+    <script src="./app.js?v=20260424-4" defer></script>
   </body>
 </html>
