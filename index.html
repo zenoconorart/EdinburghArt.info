@@ -6,44 +6,56 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <title>Edinburgh Art Calendar | Exhibitions, Galleries & Free Events</title>
-    <meta name="description" content="A simple searchable calendar of current Edinburgh art exhibitions, galleries, free events and opening nights. Find what is showing in Edinburgh now." />
+    <meta name="description" content="A simple searchable visual guide to current Edinburgh art exhibitions, galleries, free events and opening nights. Find what is showing in Edinburgh now." />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href="https://zenoconorart.github.io/EdinburghArt.info/" />
     <meta name="theme-color" content="#faf7f1" />
     <meta property="og:title" content="Edinburgh Art Calendar" />
-    <meta property="og:description" content="A simple searchable calendar of current Edinburgh art exhibitions, galleries, free events and opening nights." />
+    <meta property="og:description" content="A simple visual guide to current Edinburgh art exhibitions, galleries, free events and opening nights." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://zenoconorart.github.io/EdinburghArt.info/" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Edinburgh Art Calendar" />
     <meta name="twitter:description" content="Find what art is showing in Edinburgh now." />
-    <link rel="stylesheet" href="./styles.css?v=20260424-9" />
+    <link rel="stylesheet" href="./styles.css?v=20260424-10" />
   </head>
   <body>
     <header class="app-header">
       <a class="brand" href="#top" aria-label="Edinburgh Arts Info home">
         <span class="brand-mark">🎨</span>
-        <span><strong>Edinburgh Arts Info</strong><small>Simple art listings</small></span>
+        <span><strong>Edinburgh Arts Info</strong><small>Visual art listings</small></span>
       </a>
       <p class="header-count"><span id="todayCount">0</span> happening now</p>
     </header>
 
     <main id="top" class="app-shell">
       <section class="search-panel" aria-labelledby="pageTitle">
-        <h1 id="pageTitle">Edinburgh art calendar</h1>
+        <h1 id="pageTitle">Find art in Edinburgh</h1>
         <label class="search-field" for="searchFilter">
           <span class="visually-hidden">Search Edinburgh art listings</span>
           <input id="searchFilter" type="search" placeholder="Search exhibitions, galleries, artists, areas..." autocomplete="off" />
         </label>
 
-        <div class="filter-row" aria-label="Filter listings">
-          <label>What<select id="viewFilter"><option value="exhibitions" selected>Exhibitions</option><option value="all">Everything</option><option value="galleries">Galleries</option><option value="opening">Openings and events</option></select></label>
-          <label>When<select id="timeFilter"><option value="now" selected>Happening now</option><option value="upcoming">Upcoming</option><option value="all-current">Now and upcoming</option></select></label>
-          <label>Price<select id="priceFilter"><option value="all">Any price</option><option value="free">Free</option><option value="paid">Paid</option><option value="under10">Under £10</option><option value="varies">Varies / check source</option></select></label>
-          <label>Area<select id="areaFilter"><option value="all">All areas</option></select></label>
-          <label>Venue<select id="venueFilter"><option value="all">All venues</option></select></label>
-          <label>Category<select id="tagFilter"><option value="all">All categories</option><option value="painting">Painting</option><option value="sculpture">Sculpture</option><option value="photography">Photography</option><option value="printmaking">Printmaking</option><option value="textiles">Textiles</option><option value="family">Family</option><option value="evening">Evening</option><option value="quiet">Quiet</option><option value="outdoors">Outdoors</option><option value="workshop">Workshop</option></select></label>
-        </div>
+        <nav class="visual-grid" aria-label="Browse visually">
+          <button class="visual-tile is-active" data-view-tab="exhibitions" type="button"><span>🖼️</span><strong>Exhibitions</strong></button>
+          <button class="visual-tile" data-view-tab="galleries" type="button"><span>🏛️</span><strong>Galleries</strong></button>
+          <button class="visual-tile" data-price-tab="free" type="button"><span>💸</span><strong>Free</strong></button>
+          <button class="visual-tile" data-view-tab="opening" type="button"><span>🥂</span><strong>Openings</strong></button>
+          <button class="visual-tile" data-tag-tab="family" type="button"><span>🧸</span><strong>Family</strong></button>
+          <button class="visual-tile" data-tag-tab="outdoors" type="button"><span>🌿</span><strong>Outdoors</strong></button>
+        </nav>
+
+        <details class="filter-drawer">
+          <summary><span>⚙️ Filters</span><small>area, price, venue, category</small></summary>
+          <div class="filter-row" aria-label="Filter listings">
+            <label>What<select id="viewFilter"><option value="exhibitions" selected>Exhibitions</option><option value="all">Everything</option><option value="galleries">Galleries</option><option value="opening">Openings and events</option></select></label>
+            <label>When<select id="timeFilter"><option value="now" selected>Happening now</option><option value="upcoming">Upcoming</option><option value="all-current">Now and upcoming</option></select></label>
+            <label>Price<select id="priceFilter"><option value="all">Any price</option><option value="free">Free</option><option value="paid">Paid</option><option value="under10">Under £10</option><option value="varies">Varies / check source</option></select></label>
+            <label>Area<select id="areaFilter"><option value="all">All areas</option></select></label>
+            <label>Venue<select id="venueFilter"><option value="all">All venues</option></select></label>
+            <label>Category<select id="tagFilter"><option value="all">All categories</option><option value="painting">Painting</option><option value="sculpture">Sculpture</option><option value="photography">Photography</option><option value="printmaking">Printmaking</option><option value="textiles">Textiles</option><option value="family">Family</option><option value="evening">Evening</option><option value="quiet">Quiet</option><option value="outdoors">Outdoors</option><option value="workshop">Workshop</option></select></label>
+          </div>
+        </details>
       </section>
 
       <section class="summary-bar" aria-label="Listing summary">
@@ -58,7 +70,7 @@
         <summary>About and sources</summary>
         <div>
           <h2>Current Edinburgh art exhibitions and sources</h2>
-          <p>Edinburgh Arts Info is a simple searchable calendar for current Edinburgh art exhibitions, galleries, free events and opening nights. Listings link to official venue sources for booking, access and final details.</p>
+          <p>Edinburgh Arts Info is a simple searchable visual guide for current Edinburgh art exhibitions, galleries, free events and opening nights. Listings link to official venue sources for booking, access and final details.</p>
           <ul>
             <li><a href="https://www.fruitmarket.co.uk/event/ilana-halperin/">Fruitmarket</a></li>
             <li><a href="https://www.collective-edinburgh.art/programme/paloma-proudfoot">Collective</a></li>
@@ -95,6 +107,6 @@
       </article>
     </template>
 
-    <script src="./app.js?v=20260424-9" defer></script>
+    <script src="./app.js?v=20260424-10" defer></script>
   </body>
 </html>
