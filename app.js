@@ -10,8 +10,7 @@ const listings = [
     end: '2026-05-17T18:00:00',
     price: 'Free',
     priceBand: 'free',
-    description: 'A major exhibition of sculpture, drawing and photography connecting human experience with geological time.',
-    preview: 'Sculpture, drawing and photography meet geology, memory and the strange overlap between body and landscape.',
+    description: 'Sculpture, drawing and photography connecting human experience with geological time.',
     sourceName: 'Fruitmarket',
     sourceUrl: 'https://www.fruitmarket.co.uk/event/ilana-halperin/',
     tags: ['free', 'visual art', 'sculpture', 'quiet']
@@ -28,7 +27,6 @@ const listings = [
     price: 'Free',
     priceBand: 'free',
     description: 'A self-guided audio and film walk through Edinburgh’s closes and backstreets.',
-    preview: 'A free night-time audio walk through the city, good for people who want art to feel like a small urban adventure.',
     sourceName: 'Fruitmarket',
     sourceUrl: 'https://www.fruitmarket.co.uk/event/night-walk-for-edinburgh-2/',
     tags: ['free', 'audio walk', 'evening', 'outdoors']
@@ -44,8 +42,7 @@ const listings = [
     end: '2026-05-24T17:00:00',
     price: 'Free',
     priceBand: 'free',
-    description: 'New sculpture and installation work shown in Collective’s City Dome Gallery on Calton Hill.',
-    preview: 'A sculptural show in one of Edinburgh’s best elevated gallery locations, pairing contemporary work with a Calton Hill visit.',
+    description: 'Sculpture and installation work shown in Collective’s City Dome Gallery on Calton Hill.',
     sourceName: 'Collective',
     sourceUrl: 'https://www.collective-edinburgh.art/programme/paloma-proudfoot',
     tags: ['free', 'installation', 'sculpture', 'quiet']
@@ -61,8 +58,7 @@ const listings = [
     end: '2026-05-31T17:00:00',
     price: 'Paid, see source',
     priceBand: 'paid',
-    description: 'A National Galleries of Scotland exhibition exploring Warhol’s pop imagery, celebrity and culture.',
-    preview: 'A high-profile paid show for anyone interested in pop art, celebrity imagery, print culture and big-name modern art.',
+    description: 'Pop art, celebrity imagery and culture at National Galleries of Scotland.',
     sourceName: 'National Galleries of Scotland',
     sourceUrl: 'https://www.nationalgalleries.org/',
     tags: ['paid', 'modern art', 'pop art', 'quiet']
@@ -78,8 +74,7 @@ const listings = [
     end: '2026-04-26T17:00:00',
     price: 'Free, donations welcome',
     priceBand: 'free',
-    description: 'The RSA’s annual showcase of contemporary art and architecture from artists across Scotland.',
-    preview: 'A broad annual showcase, useful if you want a quick overview of Scottish contemporary art, painting and architecture.',
+    description: 'The RSA’s annual showcase of contemporary art and architecture from Scotland.',
     sourceName: 'Royal Scottish Academy',
     sourceUrl: 'https://www.royalscottishacademy.org/',
     tags: ['free', 'painting', 'architecture', 'visual art']
@@ -95,8 +90,7 @@ const listings = [
     end: '2026-05-24T18:00:00',
     price: 'Free',
     priceBand: 'free',
-    description: 'A lively visual art exhibition at Summerhall, part of its spring gallery programme.',
-    preview: 'A bright, characterful Summerhall option, good to pair with coffee, drinks, studios or a Southside wander.',
+    description: 'A lively visual art exhibition at Summerhall.',
     sourceName: 'Summerhall',
     sourceUrl: 'https://www.summerhall.co.uk/',
     tags: ['free', 'visual art', 'queer art', 'gallery']
@@ -112,8 +106,7 @@ const listings = [
     end: '2026-06-28T17:00:00',
     price: 'See source',
     priceBand: 'varies',
-    description: 'A Dovecot Studios exhibition connecting craft, identity, textile practice and contemporary making.',
-    preview: 'A craft and textile-led stop, ideal for people drawn to making, material culture, design and careful objects.',
+    description: 'Craft, identity, textile practice and contemporary making at Dovecot Studios.',
     sourceName: 'Dovecot Studios',
     sourceUrl: 'https://dovecotstudios.com/',
     tags: ['textiles', 'design', 'craft', 'quiet']
@@ -130,7 +123,6 @@ const listings = [
     price: 'Free',
     priceBand: 'free',
     description: 'A focused contemporary painting exhibition at Ingleby Gallery.',
-    preview: 'A refined contemporary painting show, good for a quieter New Town gallery stop with strong visual focus.',
     sourceName: 'Ingleby Gallery',
     sourceUrl: 'https://www.inglebygallery.com/',
     tags: ['free', 'painting', 'contemporary art', 'quiet']
@@ -146,8 +138,7 @@ const listings = [
     end: '2026-07-26T17:00:00',
     price: 'Paid, see source',
     priceBand: 'paid',
-    description: 'A seasonal exhibition at Jupiter Artland, alongside the sculpture park and outdoor programme.',
-    preview: 'A bigger day-out option, pairing a paid exhibition with outdoor sculpture, landscape and family-friendly wandering.',
+    description: 'A seasonal exhibition alongside Jupiter Artland’s sculpture park programme.',
     sourceName: 'Jupiter Artland',
     sourceUrl: 'https://www.jupiterartland.org/',
     tags: ['paid', 'sculpture', 'outdoors', 'family']
@@ -163,8 +154,7 @@ const listings = [
     end: '2026-05-03T16:00:00',
     price: 'Free',
     priceBand: 'free',
-    description: 'A free family making session with clay and puppetry in response to the current exhibition.',
-    preview: 'A hands-on family session, useful for younger visitors or anyone who wants something active rather than purely observational.',
+    description: 'A free family making session with clay and puppetry.',
     sourceName: 'Collective',
     sourceUrl: 'https://www.collective-edinburgh.art/programme/play-sunday-paloma',
     tags: ['free', 'family', 'workshop', 'afternoon']
@@ -180,8 +170,7 @@ const listings = [
     end: '2026-12-31T18:00:00',
     price: 'Free',
     priceBand: 'free',
-    description: 'A photography gallery and production centre on Cockburn Street with exhibitions, courses and facilities.',
-    preview: 'A central photography space, good for exhibitions, courses, production facilities and a quick Old Town stop.',
+    description: 'Photography gallery and production centre on Cockburn Street.',
     sourceName: 'Stills',
     sourceUrl: 'https://www.stills.org/',
     tags: ['free', 'photography', 'gallery', 'courses']
@@ -197,18 +186,11 @@ const listings = [
     end: '2026-12-31T18:00:00',
     price: 'Free',
     priceBand: 'free',
-    description: 'A printmaking studio, gallery, shop and cafe in Fountainbridge with exhibitions and artist editions.',
-    preview: 'A strong stop for printmaking, editions, studio culture and a more practical look at how art is made.',
+    description: 'Printmaking studio, gallery, shop and cafe in Fountainbridge.',
     sourceName: 'Edinburgh Printmakers',
     sourceUrl: 'https://edinburghprintmakers.co.uk/',
     tags: ['free', 'printmaking', 'gallery', 'shop']
   }
-];
-
-const routes = [
-  { title: 'Old Town art hour', time: '60 to 90 minutes', emoji: '🖼️', description: 'A compact route for visitors who want a strong art hit without crossing the city.', stops: ['Fruitmarket', 'Stills', 'Dovecot Studios'], tags: ['central', 'walking', 'tourist friendly'] },
-  { title: 'Calton Hill and New Town', time: 'Half day', emoji: '🌿', description: 'A quiet route built around views, contemporary galleries and enough breathing room to actually look properly.', stops: ['Collective', 'Ingleby Gallery', 'Royal Scottish Academy'], tags: ['quiet', 'views', 'free'] },
-  { title: 'Festival survival route', time: 'Flexible', emoji: '✨', description: 'Designed for August: fewer tabs, clearer choices, and a walkable route instead of an overwhelming list.', stops: ['Start near Waverley', 'Choose two major venues', 'Add one artist-run space'], tags: ['festival', 'easy plan', 'low stress'] }
 ];
 
 const state = { view: 'exhibitions', time: 'now', price: 'all', area: 'all', search: '', chip: 'all' };
@@ -221,14 +203,10 @@ const searchFilter = document.querySelector('#searchFilter');
 const listingsGrid = document.querySelector('#listingsGrid');
 const listingCount = document.querySelector('#listingCount');
 const venueCount = document.querySelector('#venueCount');
-const venueCountHero = document.querySelector('#venueCountHero');
 const areaCount = document.querySelector('#areaCount');
 const todayCount = document.querySelector('#todayCount');
 const listingTemplate = document.querySelector('#listingTemplate');
-const routeTemplate = document.querySelector('#routeTemplate');
-const routeGrid = document.querySelector('#routeGrid');
 const chipButtons = [...document.querySelectorAll('[data-chip]')];
-const jumpLinks = [...document.querySelectorAll('[data-jump-view], [data-jump-chip], [data-jump-price]')];
 
 function isHappeningNow(item) {
   const now = new Date();
@@ -259,7 +237,7 @@ function visibleListings() {
     if (!priceMatches(item)) return false;
     if (state.area !== 'all' && item.area !== state.area) return false;
     if (state.chip !== 'all' && !item.tags.includes(state.chip)) return false;
-    const haystack = [item.title, item.type, item.venue, item.area, item.price, item.description, item.preview, ...item.tags].join(' ').toLowerCase();
+    const haystack = [item.title, item.type, item.venue, item.area, item.price, item.description, ...item.tags].join(' ').toLowerCase();
     return !query || haystack.includes(query);
   });
 }
@@ -272,17 +250,21 @@ function formatDate(item) {
   const month = new Intl.DateTimeFormat('en-GB', { month: 'short' });
   const longDate = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long' });
   const ongoing = start <= now && now <= end;
-  return { day: ongoing ? day.format(end) : day.format(start), month: ongoing ? month.format(end) : month.format(start), meta: ongoing ? `Ongoing until ${longDate.format(end)}` : `From ${longDate.format(start)}` };
+  return {
+    day: ongoing ? day.format(end) : day.format(start),
+    month: ongoing ? month.format(end) : month.format(start),
+    meta: ongoing ? `Until ${longDate.format(end)}` : `From ${longDate.format(start)}`
+  };
 }
 
 function listingVisual(item) {
-  if (item.kind === 'galleries') return { emoji: '🏛️', label: 'Gallery' };
-  if (item.kind === 'opening') return { emoji: item.tags.includes('family') ? '🧸' : '🥂', label: 'Event' };
-  if (item.tags.includes('audio walk')) return { emoji: '🎧', label: 'Explore' };
-  if (item.tags.includes('photography')) return { emoji: '📷', label: 'Photo' };
-  if (item.tags.includes('sculpture')) return { emoji: '🗿', label: 'Show' };
-  if (item.tags.includes('painting')) return { emoji: '🎨', label: 'Show' };
-  return { emoji: '🖼️', label: 'See it' };
+  if (item.kind === 'galleries') return { emoji: '🏛️' };
+  if (item.kind === 'opening') return { emoji: item.tags.includes('family') ? '🧸' : '🥂' };
+  if (item.tags.includes('audio walk')) return { emoji: '🎧' };
+  if (item.tags.includes('photography')) return { emoji: '📷' };
+  if (item.tags.includes('sculpture')) return { emoji: '🗿' };
+  if (item.tags.includes('painting')) return { emoji: '🎨' };
+  return { emoji: '🖼️' };
 }
 
 function calendarDate(value) {
@@ -331,91 +313,36 @@ function setPrice(priceValue) {
   if (priceValue !== 'free' && state.chip === 'free') setChip('all');
 }
 
-function togglePreview(card) {
-  const preview = card.querySelector('.listing-preview');
-  const button = card.querySelector('.preview-button');
-  if (!preview || !button) return;
-  const willOpen = preview.hidden;
-  preview.hidden = !willOpen;
-  card.classList.toggle('is-expanded', willOpen);
-  button.textContent = willOpen ? 'Hide preview' : 'Quick preview';
-  button.setAttribute('aria-expanded', String(willOpen));
-}
-
 function renderListings() {
   const items = visibleListings();
   const nowItems = activeListings().filter((item) => item.kind === 'exhibitions' && isHappeningNow(item));
   listingsGrid.innerHTML = '';
   listingCount.textContent = String(items.length);
   venueCount.textContent = String(new Set(items.map((item) => item.venue)).size);
-  venueCountHero.textContent = String(new Set(nowItems.map((item) => item.venue)).size);
   areaCount.textContent = String(new Set(items.map((item) => item.area)).size);
   todayCount.textContent = String(nowItems.length);
 
   if (!items.length) {
-    listingsGrid.innerHTML = '<section class="empty-state"><h3>No listings match this view.</h3><p>Try clearing the search, changing area, switching price, or setting When to now and upcoming.</p></section>';
+    listingsGrid.innerHTML = '<section class="empty-state"><h2>No results</h2><p>Try clearing search, changing price, or setting When to all current.</p></section>';
     return;
   }
 
   items.forEach((item) => {
     const node = listingTemplate.content.cloneNode(true);
-    const card = node.querySelector('.listing-card');
     const date = formatDate(item);
     const visual = listingVisual(item);
-    card.dataset.listingId = item.id;
-    node.querySelector('.listing-day').textContent = date.day;
-    node.querySelector('.listing-month').textContent = date.month;
-    node.querySelector('.listing-emoji').textContent = visual.emoji;
-    node.querySelector('.listing-label').textContent = visual.label;
-    node.querySelector('.listing-type').textContent = item.type;
-    node.querySelector('.listing-price').textContent = item.price;
-    node.querySelector('.listing-title').textContent = item.title;
-    node.querySelector('.listing-meta').textContent = `${date.meta} / ${item.venue} / ${item.area}`;
-    node.querySelector('.listing-description').textContent = item.description;
-    node.querySelector('.preview-emoji').textContent = visual.emoji;
-    node.querySelector('.preview-label').textContent = item.type;
-    node.querySelector('.preview-copy h4').textContent = `${item.title} at ${item.venue}`;
-    node.querySelector('.preview-text').textContent = item.preview || item.description;
-    node.querySelector('.preview-note').textContent = `${item.price} / ${item.area} / ${date.meta}. Use the official page to confirm times, access and booking.`;
-    const tags = node.querySelector('.listing-tags');
-    item.tags.slice(0, 4).forEach((tag) => { const pill = document.createElement('span'); pill.textContent = tag; tags.append(pill); });
+    node.querySelector('.event-day').textContent = date.day;
+    node.querySelector('.event-month').textContent = date.month;
+    node.querySelector('.event-emoji').textContent = visual.emoji;
+    node.querySelector('.event-title').textContent = item.title;
+    node.querySelector('.event-meta').textContent = `${date.meta} • ${item.venue} • ${item.area}`;
+    node.querySelector('.event-description').textContent = item.description;
+    node.querySelector('.event-price').textContent = item.price;
     const source = node.querySelector('.source-link');
     source.href = item.sourceUrl;
-    source.textContent = `Official page`;
+    source.textContent = item.sourceName;
     node.querySelector('.calendar-link').href = calendarUrl(item);
-    const previewButton = node.querySelector('.preview-button');
-    previewButton.setAttribute('aria-expanded', 'false');
-    previewButton.addEventListener('click', (event) => {
-      event.stopPropagation();
-      togglePreview(card);
-    });
-    card.addEventListener('click', (event) => {
-      if (event.target.closest('a, button, select, input')) return;
-      togglePreview(card);
-    });
-    card.addEventListener('keydown', (event) => {
-      if (event.key !== 'Enter' && event.key !== ' ') return;
-      if (event.target.closest('a, button, select, input')) return;
-      event.preventDefault();
-      togglePreview(card);
-    });
     listingsGrid.append(node);
-  });
-}
-
-function renderRoutes() {
-  routeGrid.innerHTML = '';
-  routes.forEach((route) => {
-    const node = routeTemplate.content.cloneNode(true);
-    node.querySelector('.route-emoji').textContent = route.emoji;
-    node.querySelector('.route-time').textContent = route.time;
-    node.querySelector('h3').textContent = route.title;
-    node.querySelector('p').textContent = route.description;
-    const list = node.querySelector('ol');
-    route.stops.forEach((stop) => { const li = document.createElement('li'); li.textContent = stop; list.append(li); });
-    const tags = node.querySelector('.route-tags');
-    route.tags.forEach((tag) => { const pill = document.createElement('span'); pill.textContent = tag; tags.append(pill); });
-    routeGrid.append(node);
   });
 }
 
@@ -431,14 +358,7 @@ function bindEvents() {
   areaFilter.addEventListener('change', (event) => { state.area = event.target.value; renderListings(); });
   searchFilter.addEventListener('input', (event) => { state.search = event.target.value; renderListings(); });
   chipButtons.forEach((button) => button.addEventListener('click', () => { setChip(button.dataset.chip); renderListings(); }));
-  jumpLinks.forEach((link) => link.addEventListener('click', () => {
-    if (link.dataset.jumpView) viewFilter.value = state.view = link.dataset.jumpView;
-    if (link.dataset.jumpChip) setChip(link.dataset.jumpChip);
-    if (link.dataset.jumpPrice) setPrice(link.dataset.jumpPrice);
-    renderPage();
-  }));
 }
 
 renderPage();
-renderRoutes();
 bindEvents();
