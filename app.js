@@ -11,6 +11,7 @@ const listings = [
     price: 'Free',
     priceBand: 'free',
     description: 'A major exhibition of sculpture, drawing and photography connecting human experience with geological time.',
+    preview: 'Sculpture, drawing and photography meet geology, memory and the strange overlap between body and landscape.',
     sourceName: 'Fruitmarket',
     sourceUrl: 'https://www.fruitmarket.co.uk/event/ilana-halperin/',
     tags: ['free', 'visual art', 'sculpture', 'quiet']
@@ -27,6 +28,7 @@ const listings = [
     price: 'Free',
     priceBand: 'free',
     description: 'A self-guided audio and film walk through Edinburgh’s closes and backstreets.',
+    preview: 'A free night-time audio walk through the city, good for people who want art to feel like a small urban adventure.',
     sourceName: 'Fruitmarket',
     sourceUrl: 'https://www.fruitmarket.co.uk/event/night-walk-for-edinburgh-2/',
     tags: ['free', 'audio walk', 'evening', 'outdoors']
@@ -43,6 +45,7 @@ const listings = [
     price: 'Free',
     priceBand: 'free',
     description: 'New sculpture and installation work shown in Collective’s City Dome Gallery on Calton Hill.',
+    preview: 'A sculptural show in one of Edinburgh’s best elevated gallery locations, pairing contemporary work with a Calton Hill visit.',
     sourceName: 'Collective',
     sourceUrl: 'https://www.collective-edinburgh.art/programme/paloma-proudfoot',
     tags: ['free', 'installation', 'sculpture', 'quiet']
@@ -59,6 +62,7 @@ const listings = [
     price: 'Paid, see source',
     priceBand: 'paid',
     description: 'A National Galleries of Scotland exhibition exploring Warhol’s pop imagery, celebrity and culture.',
+    preview: 'A high-profile paid show for anyone interested in pop art, celebrity imagery, print culture and big-name modern art.',
     sourceName: 'National Galleries of Scotland',
     sourceUrl: 'https://www.nationalgalleries.org/',
     tags: ['paid', 'modern art', 'pop art', 'quiet']
@@ -75,6 +79,7 @@ const listings = [
     price: 'Free, donations welcome',
     priceBand: 'free',
     description: 'The RSA’s annual showcase of contemporary art and architecture from artists across Scotland.',
+    preview: 'A broad annual showcase, useful if you want a quick overview of Scottish contemporary art, painting and architecture.',
     sourceName: 'Royal Scottish Academy',
     sourceUrl: 'https://www.royalscottishacademy.org/',
     tags: ['free', 'painting', 'architecture', 'visual art']
@@ -91,6 +96,7 @@ const listings = [
     price: 'Free',
     priceBand: 'free',
     description: 'A lively visual art exhibition at Summerhall, part of its spring gallery programme.',
+    preview: 'A bright, characterful Summerhall option, good to pair with coffee, drinks, studios or a Southside wander.',
     sourceName: 'Summerhall',
     sourceUrl: 'https://www.summerhall.co.uk/',
     tags: ['free', 'visual art', 'queer art', 'gallery']
@@ -107,6 +113,7 @@ const listings = [
     price: 'See source',
     priceBand: 'varies',
     description: 'A Dovecot Studios exhibition connecting craft, identity, textile practice and contemporary making.',
+    preview: 'A craft and textile-led stop, ideal for people drawn to making, material culture, design and careful objects.',
     sourceName: 'Dovecot Studios',
     sourceUrl: 'https://dovecotstudios.com/',
     tags: ['textiles', 'design', 'craft', 'quiet']
@@ -123,6 +130,7 @@ const listings = [
     price: 'Free',
     priceBand: 'free',
     description: 'A focused contemporary painting exhibition at Ingleby Gallery.',
+    preview: 'A refined contemporary painting show, good for a quieter New Town gallery stop with strong visual focus.',
     sourceName: 'Ingleby Gallery',
     sourceUrl: 'https://www.inglebygallery.com/',
     tags: ['free', 'painting', 'contemporary art', 'quiet']
@@ -139,6 +147,7 @@ const listings = [
     price: 'Paid, see source',
     priceBand: 'paid',
     description: 'A seasonal exhibition at Jupiter Artland, alongside the sculpture park and outdoor programme.',
+    preview: 'A bigger day-out option, pairing a paid exhibition with outdoor sculpture, landscape and family-friendly wandering.',
     sourceName: 'Jupiter Artland',
     sourceUrl: 'https://www.jupiterartland.org/',
     tags: ['paid', 'sculpture', 'outdoors', 'family']
@@ -155,6 +164,7 @@ const listings = [
     price: 'Free',
     priceBand: 'free',
     description: 'A free family making session with clay and puppetry in response to the current exhibition.',
+    preview: 'A hands-on family session, useful for younger visitors or anyone who wants something active rather than purely observational.',
     sourceName: 'Collective',
     sourceUrl: 'https://www.collective-edinburgh.art/programme/play-sunday-paloma',
     tags: ['free', 'family', 'workshop', 'afternoon']
@@ -171,6 +181,7 @@ const listings = [
     price: 'Free',
     priceBand: 'free',
     description: 'A photography gallery and production centre on Cockburn Street with exhibitions, courses and facilities.',
+    preview: 'A central photography space, good for exhibitions, courses, production facilities and a quick Old Town stop.',
     sourceName: 'Stills',
     sourceUrl: 'https://www.stills.org/',
     tags: ['free', 'photography', 'gallery', 'courses']
@@ -187,6 +198,7 @@ const listings = [
     price: 'Free',
     priceBand: 'free',
     description: 'A printmaking studio, gallery, shop and cafe in Fountainbridge with exhibitions and artist editions.',
+    preview: 'A strong stop for printmaking, editions, studio culture and a more practical look at how art is made.',
     sourceName: 'Edinburgh Printmakers',
     sourceUrl: 'https://edinburghprintmakers.co.uk/',
     tags: ['free', 'printmaking', 'gallery', 'shop']
@@ -247,7 +259,7 @@ function visibleListings() {
     if (!priceMatches(item)) return false;
     if (state.area !== 'all' && item.area !== state.area) return false;
     if (state.chip !== 'all' && !item.tags.includes(state.chip)) return false;
-    const haystack = [item.title, item.type, item.venue, item.area, item.price, item.description, ...item.tags].join(' ').toLowerCase();
+    const haystack = [item.title, item.type, item.venue, item.area, item.price, item.description, item.preview, ...item.tags].join(' ').toLowerCase();
     return !query || haystack.includes(query);
   });
 }
@@ -279,7 +291,18 @@ function calendarDate(value) {
 }
 
 function calendarUrl(item) {
-  const params = new URLSearchParams({ action: 'TEMPLATE', text: `${item.title} at ${item.venue}`, dates: `${calendarDate(item.start)}/${calendarDate(item.end)}`, details: `${item.description}\n\nSource: ${item.sourceUrl}`, location: `${item.venue}, Edinburgh`, ctz: 'Europe/London', sf: 'true', output: 'xml' });
+  const visual = listingVisual(item);
+  const title = `${visual.emoji} ${item.title} at ${item.venue}`;
+  const params = new URLSearchParams({
+    action: 'TEMPLATE',
+    text: title,
+    dates: `${calendarDate(item.start)}/${calendarDate(item.end)}`,
+    details: `${item.description}\n\nSaved from Edinburgh Arts Info.\nOfficial source: ${item.sourceUrl}`,
+    location: `${item.venue}, Edinburgh`,
+    ctz: 'Europe/London',
+    sf: 'true',
+    output: 'xml'
+  });
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
 }
 
@@ -308,6 +331,17 @@ function setPrice(priceValue) {
   if (priceValue !== 'free' && state.chip === 'free') setChip('all');
 }
 
+function togglePreview(card) {
+  const preview = card.querySelector('.listing-preview');
+  const button = card.querySelector('.preview-button');
+  if (!preview || !button) return;
+  const willOpen = preview.hidden;
+  preview.hidden = !willOpen;
+  card.classList.toggle('is-expanded', willOpen);
+  button.textContent = willOpen ? 'Hide preview' : 'Quick preview';
+  button.setAttribute('aria-expanded', String(willOpen));
+}
+
 function renderListings() {
   const items = visibleListings();
   const nowItems = activeListings().filter((item) => item.kind === 'exhibitions' && isHappeningNow(item));
@@ -325,8 +359,10 @@ function renderListings() {
 
   items.forEach((item) => {
     const node = listingTemplate.content.cloneNode(true);
+    const card = node.querySelector('.listing-card');
     const date = formatDate(item);
     const visual = listingVisual(item);
+    card.dataset.listingId = item.id;
     node.querySelector('.listing-day').textContent = date.day;
     node.querySelector('.listing-month').textContent = date.month;
     node.querySelector('.listing-emoji').textContent = visual.emoji;
@@ -336,12 +372,33 @@ function renderListings() {
     node.querySelector('.listing-title').textContent = item.title;
     node.querySelector('.listing-meta').textContent = `${date.meta} / ${item.venue} / ${item.area}`;
     node.querySelector('.listing-description').textContent = item.description;
+    node.querySelector('.preview-emoji').textContent = visual.emoji;
+    node.querySelector('.preview-label').textContent = item.type;
+    node.querySelector('.preview-copy h4').textContent = `${item.title} at ${item.venue}`;
+    node.querySelector('.preview-text').textContent = item.preview || item.description;
+    node.querySelector('.preview-note').textContent = `${item.price} / ${item.area} / ${date.meta}. Use the official page to confirm times, access and booking.`;
     const tags = node.querySelector('.listing-tags');
     item.tags.slice(0, 4).forEach((tag) => { const pill = document.createElement('span'); pill.textContent = tag; tags.append(pill); });
     const source = node.querySelector('.source-link');
     source.href = item.sourceUrl;
-    source.textContent = `Open ${item.sourceName}`;
+    source.textContent = `Official page`;
     node.querySelector('.calendar-link').href = calendarUrl(item);
+    const previewButton = node.querySelector('.preview-button');
+    previewButton.setAttribute('aria-expanded', 'false');
+    previewButton.addEventListener('click', (event) => {
+      event.stopPropagation();
+      togglePreview(card);
+    });
+    card.addEventListener('click', (event) => {
+      if (event.target.closest('a, button, select, input')) return;
+      togglePreview(card);
+    });
+    card.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      if (event.target.closest('a, button, select, input')) return;
+      event.preventDefault();
+      togglePreview(card);
+    });
     listingsGrid.append(node);
   });
 }
