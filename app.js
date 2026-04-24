@@ -144,6 +144,22 @@ const listings = [
     tags: ['paid', 'sculpture', 'outdoors', 'family']
   },
   {
+    id: 'collective-play-sunday',
+    title: 'Play Sunday',
+    kind: 'opening',
+    type: 'Family event',
+    venue: 'Collective',
+    area: 'Calton Hill',
+    start: '2026-05-03T13:00:00',
+    end: '2026-05-03T16:00:00',
+    price: 'Free',
+    priceBand: 'free',
+    description: 'A free family making session with clay and puppetry in response to the current exhibition.',
+    sourceName: 'Collective',
+    sourceUrl: 'https://www.collective-edinburgh.art/programme/play-sunday-paloma',
+    tags: ['free', 'family', 'workshop', 'afternoon']
+  },
+  {
     id: 'stills-centre',
     title: 'Stills Centre for Photography',
     kind: 'galleries',
@@ -200,7 +216,7 @@ const listingTemplate = document.querySelector('#listingTemplate');
 const routeTemplate = document.querySelector('#routeTemplate');
 const routeGrid = document.querySelector('#routeGrid');
 const chipButtons = [...document.querySelectorAll('[data-chip]')];
-const jumpLinks = [...document.querySelectorAll('[data-jump-view], [data-jump-chip]')];
+const jumpLinks = [...document.querySelectorAll('[data-jump-view], [data-jump-chip], [data-jump-price]')];
 
 function isHappeningNow(item) {
   const now = new Date();
@@ -208,9 +224,7 @@ function isHappeningNow(item) {
 }
 
 function activeListings() {
-  return listings
-    .filter((item) => new Date(item.end) >= new Date())
-    .sort((a, b) => new Date(a.start) - new Date(b.start));
+  return listings.filter((item) => new Date(item.end) >= new Date()).sort((a, b) => new Date(a.start) - new Date(b.start));
 }
 
 function timeMatches(item) {
@@ -288,6 +302,12 @@ function setChip(chipValue) {
   chipButtons.forEach((chip) => chip.classList.toggle('is-active', chip.dataset.chip === chipValue));
 }
 
+function setPrice(priceValue) {
+  state.price = priceValue;
+  priceFilter.value = priceValue;
+  if (priceValue !== 'free' && state.chip === 'free') setChip('all');
+}
+
 function renderListings() {
   const items = visibleListings();
   const nowItems = activeListings().filter((item) => item.kind === 'exhibitions' && isHappeningNow(item));
@@ -350,13 +370,14 @@ function renderPage() {
 function bindEvents() {
   viewFilter.addEventListener('change', (event) => { state.view = event.target.value; renderPage(); });
   timeFilter.addEventListener('change', (event) => { state.time = event.target.value; renderListings(); });
-  priceFilter.addEventListener('change', (event) => { state.price = event.target.value; if (state.price !== 'free' && state.chip === 'free') setChip('all'); renderListings(); });
+  priceFilter.addEventListener('change', (event) => { setPrice(event.target.value); renderListings(); });
   areaFilter.addEventListener('change', (event) => { state.area = event.target.value; renderListings(); });
   searchFilter.addEventListener('input', (event) => { state.search = event.target.value; renderListings(); });
   chipButtons.forEach((button) => button.addEventListener('click', () => { setChip(button.dataset.chip); renderListings(); }));
   jumpLinks.forEach((link) => link.addEventListener('click', () => {
     if (link.dataset.jumpView) viewFilter.value = state.view = link.dataset.jumpView;
     if (link.dataset.jumpChip) setChip(link.dataset.jumpChip);
+    if (link.dataset.jumpPrice) setPrice(link.dataset.jumpPrice);
     renderPage();
   }));
 }
