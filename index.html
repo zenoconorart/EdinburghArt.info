@@ -17,7 +17,7 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Edinburgh Art Exhibitions, Galleries & Free Events" />
     <meta name="twitter:description" content="Find what art is showing in Edinburgh now, including free exhibitions, galleries, opening nights and art walks." />
-    <link rel="stylesheet" href="./styles.css?v=20260424-5" />
+    <link rel="stylesheet" href="./styles.css?v=20260424-6" />
   </head>
   <body>
     <div class="grain" aria-hidden="true"></div>
@@ -67,7 +67,7 @@
             <p class="section-kicker">Current page</p>
             <h2 id="listingsTitle">Happening now</h2>
           </div>
-          <p>Current exhibitions are shown by default. Use price, area and search to narrow things down.</p>
+          <p>Current exhibitions are shown by default. Tap a listing for a quick preview, then use the official source for booking or final details.</p>
         </div>
 
         <div class="toolbar" aria-label="Filter listings">
@@ -150,7 +150,7 @@
     </footer>
 
     <template id="listingTemplate">
-      <article class="listing-card">
+      <article class="listing-card" tabindex="0">
         <div class="listing-date"><span class="listing-day"></span><span class="listing-month"></span></div>
         <div class="listing-poster" aria-hidden="true"><span class="listing-emoji"></span><span class="listing-label"></span></div>
         <div class="listing-body">
@@ -159,12 +159,20 @@
           <p class="listing-meta"></p>
           <p class="listing-description"></p>
           <div class="listing-tags"></div>
-          <div class="listing-actions"><a class="source-link" target="_blank" rel="noreferrer">Open source</a><a class="calendar-link" target="_blank" rel="noreferrer">Add to calendar</a></div>
+          <div class="listing-actions"><button class="preview-button" type="button">Quick preview</button><a class="source-link" target="_blank" rel="noreferrer">Official page</a><a class="calendar-link" target="_blank" rel="noreferrer">Add to calendar</a></div>
+          <div class="listing-preview" hidden>
+            <div class="preview-art"><span class="preview-emoji"></span><span class="preview-label"></span></div>
+            <div class="preview-copy">
+              <h4></h4>
+              <p class="preview-text"></p>
+              <p class="preview-note"></p>
+            </div>
+          </div>
         </div>
       </article>
     </template>
 
     <template id="routeTemplate"><article class="route-card"><span class="route-emoji"></span><span class="route-time"></span><h3></h3><p></p><ol></ol><div class="route-tags"></div></article></template>
-    <script src="./app.js?v=20260424-4" defer></script>
+    <script src="./app.js?v=20260424-6" defer></script>
   </body>
 </html>
