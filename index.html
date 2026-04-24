@@ -3,11 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <title>Edinburgh Arts Info | Galleries, exhibitions and art routes</title>
     <meta name="description" content="A simple independent guide to Edinburgh galleries, exhibitions, art routes and festival-season visual culture." />
+    <link rel="canonical" href="https://edinburgharts.info/" />
+    <meta name="theme-color" content="#18130f" />
     <meta property="og:title" content="Edinburgh Arts Info" />
     <meta property="og:description" content="Find exhibitions, galleries and easy art routes across Edinburgh." />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://edinburgharts.info/" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -107,6 +112,6 @@
     </template>
 
     <template id="routeTemplate"><article class="route-card"><span class="route-time"></span><h3></h3><p></p><ol></ol><div class="route-tags"></div></article></template>
-    <script src="./app.js"></script>
+    <script src="./app.js" defer></script>
   </body>
 </html>
